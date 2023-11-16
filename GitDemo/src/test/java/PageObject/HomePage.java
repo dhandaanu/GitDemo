@@ -11,7 +11,7 @@ import org.testng.Assert;
 
 public class HomePage {
 	
-	 static WebDriver driver; 
+	 static WebDriver driver ; 
 	 
 	
 	public void dsAlgo() {
@@ -43,7 +43,25 @@ public class HomePage {
 	}
 	
 	
-	public void selectList() {
+	public void dsListArray() {
+		
+
+    	List<WebElement> elements = driver.findElements(By.cssSelector(".dropdown-menu .dropdown-item"));
+    	
+    	
+    	for (WebElement element : elements) {
+    	if ("Arrays".equals(element.getText())) {
+    			element.click();
+    			break;
+    		} else {
+    			continue;
+    		}
+		
+	     }
+	
+    }
+	
+public void dsListStack() {
 		
 
     	List<WebElement> elements = driver.findElements(By.cssSelector(".dropdown-menu .dropdown-item"));
@@ -58,10 +76,80 @@ public class HomePage {
     		}
 		
 	     }
+}
 	
-    }
-	
-	public void alertLog() {
+  public void dsListLinkedList() {
+    		
+
+     List<WebElement> elements = driver.findElements(By.cssSelector(".dropdown-menu .dropdown-item"));
+        	
+        	
+        	for (WebElement element : elements) {
+        	if ("Linked List".equals(element.getText())) {
+        			element.click();
+        			break;
+        		} else {
+        			continue;
+        		}
+        	}
+    		
+    	     }
+   public void dsListQueue() {
+        		
+
+        List<WebElement> elements = driver.findElements(By.cssSelector(".dropdown-menu .dropdown-item"));
+            	
+            	
+             for (WebElement element : elements) {
+            	if ("Queue".equals(element.getText())) {
+            			element.click();
+            			break;
+            		} else {
+            			continue;
+            		}
+            	}
+        		
+        	     }
+        	
+            	
+   public void dsListTree() {
+            		
+
+       List<WebElement> elements = driver.findElements(By.cssSelector(".dropdown-menu .dropdown-item"));
+                	
+                	
+           for (WebElement element : elements) {
+               if ("Tree".equals(element.getText())) {
+                	element.click();
+                	  break;
+                } else {
+                	continue;
+                		}
+                }
+            		
+         }
+            	
+   public void dsListGraph() {
+                		
+
+       List<WebElement> elements = driver.findElements(By.cssSelector(".dropdown-menu .dropdown-item"));
+                    	
+                    	
+           for (WebElement element : elements) {
+              if ("Graph".equals(element.getText())) {
+                   element.click();
+                    	break;
+                } else {
+                   continue;
+                 }
+             }
+                		
+         }
+                	
+                    	
+                    		
+                    	     
+    public void alertLog() {
 		
 		  System.err.println("=====" + driver.findElement(By.xpath("//div[@class='alert alert-primary']")).getText());
 		  	Assert.assertEquals(driver.findElement(By.xpath("//div[@class='alert alert-primary']")).getText(), "You are not logged in");
@@ -70,17 +158,7 @@ public class HomePage {
 //		return driver;
 	}
 	
-	public void homepg()
-	{
-		driver.get("https://dsportalapp.herokuapp.com/home");
-	}
 	
-	public void getStartbtn()
-	{
-	 driver.findElement(By.xpath("//a[text()=''Get Started']")).click();
-
-	 
-	}
 }
 
 
