@@ -4,13 +4,16 @@ Feature: Handling stack options
     Given User is logged in and on Home Page
     When User clicks on stack Get started button 
     Then User is on stack Intro page
-   And User clicks on operation in stack
-    And user clicks on try here
-   # Then User lands on tryEditor page
+    
+  Scenario: user on opertaion in stack page  
+   Given User is on opertaion stack Intro page
+    When user clicks on opertaion in stack
+    And User clicks on try here 
+    Then  User lands on tryEditor page
     
  # Scenario: User redirected to try me page to run invalid code
- #   Given User lands on tryEditor page
- #  When User enters invalid code to run on editor
+  #  Given User lands on tryEditor page
+  #  When User enters invalid code to run on editor
  #   And User clicks Run to execute code
  #  Then User gets a error message and dismisses it
     
