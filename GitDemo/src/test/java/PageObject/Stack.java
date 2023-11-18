@@ -1,13 +1,18 @@
 package PageObject;
 
+import java.nio.channels.SelectionKey;
 import java.time.Duration;
+import java.util.List;
 
-
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
+import io.cucumber.datatable.DataTable;
 
 public class Stack {
 	 static WebDriver driver ; 
@@ -32,6 +37,25 @@ public class Stack {
 	public void stackStartBtn() {
 		driver.findElement(By.xpath("/html/body/div[3]/div[4]/div/div/a")).click();
 	}
+	
+	
+    public void dropdown() {
+    	driver.findElement(By.xpath("//a[@class ='nav-link dropdown-toggle']")).click();
+    }
+    
+    public void listStack() {
+    	List<WebElement> elements = driver.findElements(By.cssSelector(".dropdown-menu .dropdown-item"));
+	    for (WebElement element : elements) {
+	    if ("Stack".equals(element.getText())) {
+			element.click();
+			break;
+		} else {
+			continue;
+		}
+	
+     }
+}
+
 
 	public void onStackPage() {
 		String actualTitle = driver.getTitle();
@@ -62,4 +86,91 @@ public class Stack {
     	String expectedTitleTE = "Assessment";
     	Assert.assertEquals(actualTitleTE, expectedTitleTE, "Condition true");
     }
+	
+	 public void enterInvalidCode(DataTable table) throws InterruptedException {
+	    List<String> codedata = table.asList();
+	   	String Coded = codedata.get(0);
+        driver.findElement(By.xpath("//form[@id='answer_form']/div/div/div/textarea")).sendKeys(Coded);
+	 	Thread.sleep(1000);
+
+	    }  	 
+	 
+	 public void enterInvalidCodeImp(DataTable table) throws InterruptedException {
+		    List<String> codedata1 = table.asList();
+		   	String Coded = codedata1.get(0);
+	        driver.findElement(By.xpath("//form[@id='answer_form']/div/div/div/textarea")).sendKeys(Coded);
+		 	Thread.sleep(1000);
+
+		    }  	 
+	 public void enterInvalidCodeApp(DataTable table) throws InterruptedException {
+		    List<String> codedata2 = table.asList();
+		   	String Coded = codedata2.get(0);
+	        driver.findElement(By.xpath("//form[@id='answer_form']/div/div/div/textarea")).sendKeys(Coded);
+		 	Thread.sleep(1000);
+
+		    }  	 
+	 		 
+	 		 
+	 public void inValidOutputMessage() throws InterruptedException {
+	    Alert alert = driver.switchTo().alert();
+	    String alertMessage= driver.switchTo().alert().getText(); 
+	    System.out.println(alertMessage); 
+	    Thread.sleep(1000);
+	    alert.accept();
+
+	    }
+	 		
+	 public void enterpythonCode(DataTable table1) throws InterruptedException {
+	     List<String> codedata1 = table1.asList();
+	   	 String Code1 = codedata1.get(0);
+	     driver.findElement(By.xpath("//form[@id='answer_form']/div/div/div/textarea")).sendKeys(Code1);
+	 	 Thread.sleep(1000);
+
+	    }  
+	 public void enterpythonCodeImp(DataTable table1) throws InterruptedException {
+	     List<String> codedata2 = table1.asList();
+	   	 String Code1 = codedata2.get(0);
+	     driver.findElement(By.xpath("//form[@id='answer_form']/div/div/div/textarea")).sendKeys(Code1);
+	 	 Thread.sleep(1000);
+
+	    }  
+	 public void enterpythonCodeApp(DataTable table1) throws InterruptedException {
+	     List<String> codedata3 = table1.asList();
+	   	 String Code1 = codedata3.get(0);
+	     driver.findElement(By.xpath("//form[@id='answer_form']/div/div/div/textarea")).sendKeys(Code1);
+	 	 Thread.sleep(1000);
+
+	    }  
+	    
+	 public void runBtn() throws InterruptedException {
+	     driver.findElement(By.xpath("//*[@id='answer_form']/button")).click();
+	     Thread.sleep(3000);
+	    }
+	    
+	 public void validOutput() {
+	     WebElement e = driver.findElement(By.xpath("//*[@id='output']"));
+	     System.out.println(e.getText());
+	    }
+	    
+	 public void implementation() {
+	    driver.findElement(By.xpath("//a[text()='Implementation']")).click();
+	    }
+	    
+	 public void application() {
+	   driver.findElement(By.xpath("//a[text()='Applications']")).click();
+	    }
+	    
+	 public void practiceQuestions()
+	    {
+	    driver.findElement(By.xpath("//a[text()='Practice Questions']")).click();
+	    }
+	    
+	 public void pacticeQuesAssert()
+	    {
+		 String actualTitleTE = driver.getTitle(); // TODO: get actual title
+	    	//System.out.println("title:" +actualTitleTE);
+	    String expectedTitleTE = "Practice Questions";
+	    Assert.assertEquals(actualTitleTE, expectedTitleTE, "Condition true");
+	    }
+	 		 
 }
