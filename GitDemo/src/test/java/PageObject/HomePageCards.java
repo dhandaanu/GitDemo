@@ -23,60 +23,53 @@ public class HomePageCards {
 }
 	
 	public void numpyNinja() {
-		
 		driver.navigate().refresh();  
-		
-		}
-	
-	
+	}
      
     public void alertAssert() {
-
-    System.err.println("=====" + driver.findElement(By.xpath("//div[@class='alert alert-primary']")).getText());
-    Assert.assertEquals(driver.findElement(By.xpath("//div[@class='alert alert-primary']")).getText(), "You are not logged in");
-        }
-	
-     
+    	System.err.println("=====" + driver.findElement(By.xpath("//div[@class='alert alert-primary']")).getText());
+    	Assert.assertEquals(driver.findElement(By.xpath("//div[@class='alert alert-primary']")).getText(), "You are not logged in");
+    }
 
 	public void dsinduction()
 	{
 		
-		driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@href='data-structures-introduction']")).click();
 		
 	}
 	
 	public void linkList() {
 	
-		driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@href='linked-list']")).click();
 		
 	}
 	
 	public void stack() {
 		
-		driver.findElement(By.xpath("/html/body/div[3]/div[4]/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@href='stack']")).click();
 		
 	}
 	
 	public void array() {
 		
-		driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@href='array']")).click();
 		
 	}
 	
 	public void queue() {
 		
-		driver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@href='queue']")).click();
 		
 	}
 	
 	public void tree() {
 		
-		driver.findElement(By.xpath("/html/body/div[3]/div[6]/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@href='tree']")).click();
 	}
 	
 	public void graph() {
 		
-		driver.findElement(By.xpath("/html/body/div[3]/div[7]/div/div/a")).click();
+		driver.findElement(By.xpath("//a[@href='graph']")).click();
 		
 		
 	}
